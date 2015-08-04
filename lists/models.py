@@ -10,4 +10,11 @@ class List(models.Model):
 
 class Item(models.Model):
     text = models.TextField(default='')
-    list = models.ForeignKey(List, default='')
+    list = models.ForeignKey(List, default=None)
+
+    class Meta:
+        ordering = ('id',)  # although P214 test passed, slapping P215 solution in anyways
+        unique_together = ('list', 'text')
+
+    def __str__(self):
+        return self.text  # Although p214 test passed, this seems useful to add anyways (p215)
