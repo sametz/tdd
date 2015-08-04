@@ -43,4 +43,3 @@ class ExistingListItemForm(ItemForm):
 
     def save(self):
         return forms.models.ModelForm.save(self)
-    
