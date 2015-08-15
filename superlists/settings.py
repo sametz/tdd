@@ -24,7 +24,10 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+# This setting is changed by the deploy script (p. 309)
+DOMAIN = "localhost"
+
+ALLOWED_HOSTS = [DOMAIN]
 
 
 # Application definition
@@ -37,7 +40,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'lists',
+    # 'south',  appears on P312 but don't think it's supposed to be here...yet, at least
     'accounts',
+    'functional_tests',
 )
 
 MIDDLEWARE_CLASSES = (
